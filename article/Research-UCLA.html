@@ -6,26 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>FPGA-based Processor for Video Object Tracking | Shengyun Peng</title>
+  <title>Real-time Object Tracking on FPGAs | Shengyun Peng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="FPGA-based Processor for Video Object Tracking">
+  <meta name="description" content="Real-time Object Tracking on FPGAs               We are trying to develop a real-time anchor-free tracking algorithm on FPGA using a     domain-specific FPGA overlay processor proposed by">
 <meta name="keywords" content="Research,UCLA,ECE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FPGA-based Processor for Video Object Tracking">
+<meta property="og:title" content="Real-time Object Tracking on FPGAs">
 <meta property="og:url" content="http://yoursite.com/article/Research-UCLA.html">
 <meta property="og:site_name" content="Shengyun Peng">
-<meta property="og:description" content="FPGA-based Processor for Video Object Tracking">
+<meta property="og:description" content="Real-time Object Tracking on FPGAs               We are trying to develop a real-time anchor-free tracking algorithm on FPGA using a     domain-specific FPGA overlay processor proposed by">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/assets/Research-UCLA-LeiHe/Fig1.png">
 <meta property="og:image" content="http://yoursite.com/assets/Research-UCLA-LeiHe/Fig2.png">
 <meta property="og:image" content="http://yoursite.com/assets/Research-UCLA-LeiHe/Fig3.png">
-<meta property="og:image" content="http://yoursite.com/assets/Research-UCLA-LeiHe/Fig4.png">
-<meta property="og:image" content="http://yoursite.com/assets/Research-UCLA-LeiHe/Fig5.png">
-<meta property="og:image" content="http://yoursite.com/assets/Research-UCLA-LeiHe/Fig6.png">
-<meta property="og:updated_time" content="2020-09-09T15:17:49.659Z">
+<meta property="og:image" content="http://yoursite.com/assets/Research-UCLA-LeiHe/Fig8.png">
+<meta property="og:image" content="http://yoursite.com/assets/Research-UCLA-LeiHe/Fig9.png">
+<meta property="og:image" content="http://yoursite.com/assets/Research-UCLA-LeiHe/Fig10.png">
+<meta property="og:updated_time" content="2020-09-12T05:58:14.001Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FPGA-based Processor for Video Object Tracking">
-<meta name="twitter:description" content="FPGA-based Processor for Video Object Tracking">
+<meta name="twitter:title" content="Real-time Object Tracking on FPGAs">
+<meta name="twitter:description" content="Real-time Object Tracking on FPGAs               We are trying to develop a real-time anchor-free tracking algorithm on FPGA using a     domain-specific FPGA overlay processor proposed by">
 <meta name="twitter:image" content="http://yoursite.com/assets/Research-UCLA-LeiHe/Fig1.png">
   
     <link rel="alternative" href="/atom.xml" title="Shengyun Peng" type="application/atom+xml">
@@ -190,7 +190,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      FPGA-based Processor for Video Object Tracking
+      Real-time Object Tracking on FPGAs
     </h1>
   
 
@@ -215,16 +215,19 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
-    <title>FPGA-based Processor for Video Object Tracking</title>
+    <title>Real-time Object Tracking on FPGAs</title>
+    <link rel="stylesheet" href="/assets/Research-UCLA-LeiHe/Research-UCLA.css">
 </head>
 <body>
 <video id="video" controls preload="none" poster="/assets/Research-UCLA-LeiHe/CarScalePoster.jpg" width="100%">
     <source id="mp4" src="/assets/Research-UCLA-LeiHe/CarScale.mp4" type="video/mp4">
 </video>
+<p>We are trying to develop a real-time anchor-free tracking algorithm on FPGA using a
+    domain-specific FPGA overlay processor proposed by our group.</p>
 <a id="more"></a>
 <h2>Introduction and Motivation</h2>
-<h3>FPGA-based acceleration for CNN, including object tracking</h3>
 <ul>
+    <p class="subtitle">FPGA-based acceleration for CNN</p>
     <li>Huge computation requirement of CNN leads to hardware acceleration</li>
     <li>FPGA has advantage of low NRE, quick time to market and low latency</li>
     <li>FPGA is more power efficient compared with GPU</li>
@@ -232,44 +235,54 @@
         for experienced FPGA developer</li>
     <li>FPGA, which operates much faster than GPU edge device Jetson TX1 and TX2,
         is more suitable for real time tracking</li>
-    <p><b>Propose a RTL based hand-coded FPGA overlay domain-specific processor unit (OPU)
+    <p class="sum">Propose a RTL based hand-coded FPGA overlay domain-specific processor unit (OPU)
         with software programmability and fast compilation time, targeting at general
-        CNN accelerations</b></p>
+        CNN accelerations</p>
 </ul>
 
-<h3>Object tracking algorithms</h3>
 <ul>
+    <p class="subtitle">Object tracking algorithms</p>
     <li>Aims to estimate the position of an arbitrary target in a video sequence, given
         only its location in the initial frame</li>
     <li>Siamese networks have drawn great attention because of their balanced accuracy
         and speed</li>
     <li>Multi-scale test and anchor generation enumerate a nearly exhaustive list of
         potential object locations and classify each of them, which is inefficient</li>
-    <p><b>Our novel tracker represents an object by a single point at bounding box center,
+    <p class="sum">Our novel tracker represents an object by a single point at bounding box center,
         and other properties such as object size and local offsets are regressed directly
-        from image features at the center location</b></p>
+        from image features at the center location</p>
 </ul>
 
-<h2>Overlay Processor for Convolutional Neural Networks</h2>
-<h3>OPU working pipeline</h3>
-<center>
-<img src="/assets/Research-UCLA-LeiHe/Fig1.png" width="60%">
-</center>
-<p>Tracking network is realized in PyTorch. Then, trackers are converted into TensorFlow
-    version for further network fusion and data quantization. Models are compiled into
-    instructions. This is done only once for each net-work. Then instructions are executed
-    by OPU which is implemented on FPGA and is fixed for all networks. The CNN algorithm
-    developer does not need to deal with FPGA implementation.</p>
-<center>
-<img src="/assets/Research-UCLA-LeiHe/Fig2.png" width="60%">
-</center>
+<h2>Framework</h2>
+<center><img src="/assets/Research-UCLA-LeiHe/Fig1.png" width="75%"></center>
+<p class="txt">Tracking network is realized in PyTorch. Then, trackers are converted into TensorFlow version for further network fusion and data quantization. Models are compiled into instructions. This is done only once for each net-work. Then instructions are executed by OPU(a domain-specific FPGA overlay processor proposed by our group) which is implemented on FPGA and is fixed for all networks. The CNN algorithm developer does not need to deal with FPGA implementation.</p>
 
-<h2>Siamese Anchor Free</h2>
-<h3>SiamAF Network structure</h3>
-<center>
-<img src="/assets/Research-UCLA-LeiHe/Fig3.png" width="60%">
-</center>
-<p>Visual object tracking is an important application of computer vision. Recently,
+<h2>Overlay Processor for Convolutional Neural Networks</h2>
+<p class="subtitle">OPU working pipeline</p>
+<center><img src="/assets/Research-UCLA-LeiHe/Fig2.png" width="70%"></center>
+<p class="txt">FPGA provides rich parallel computing resources with high energy efficiency, making it
+    ideal for deep convolutional neural network (CNN) acceleration. In recent years, automatic
+    compilers have been developed to generate network-specific FPGA accelerators. However,
+    with more cascading deep CNN algorithms adapted by various complicated tasks, re-configuration
+    of FPGA devices during runtime becomes unavoidable when network-specific accelerators are
+    employed. Such reconfiguration can be difficult for edge devices. Moreover, network-specific
+    accelerator means regeneration of RTL code and physical implementation whenever network
+    is updated. This is not easy for CNN end users. Our group proposed a domain-specific FPGA
+    overlay processor, named OPU to accelerate CNN networks. It offers software-like programmability
+    for CNN end users, as CNN algorithms are automatically compiled into executable codes, which are
+    loaded and executed by OPU without re-configuration of FPGA for switch or update of CNN networks.
+    Our OPU instructions have complicated functions with variable runtimes but a uniform length.
+    The granularity of instructions is optimized to provide good performance and sufficient flexibility,
+    while reduce complexity to develop micro-architectures and compiler. Experiments show that OPU
+    can achieve an average of 91% runtime MAC efficiency (RME) among 9 different networks. In addition,
+    OPU shows 5.35&times; better power efficiency compared with Titan Xp. For a real time cascaded CNN
+    networks scenario, OPU is 2.9&times; faster compared with edge computing GPU Jetson Tx2, which has
+    similar amount of computing resources.</p>
+
+<h2>Anchor Free Siamese Network</h2>
+<p class="subtitle">Network structure</p>
+<center><img src="/assets/Research-UCLA-LeiHe/Fig3.png" width="80%"></center>
+<p class="txt">Visual object tracking is an important application of computer vision. Recently,
     Siamese based trackers have achieved a good accuracy. However, most of Siamese
     based trackers are not efficient, as they exhaustively search potential object
     locations to define anchors and then classify each anchor. Our group develops
@@ -280,39 +293,40 @@
     Siamese network, and further perform ablation experiments to quantitatively illustrate
     the effectiveness of our AFSN. We evaluate AFSN using five most commonly used
     benchmarks and compare to the best anchor-based trackers with source codes available
-    for each benchmark. AFSN is 3 &times - 425 &times faster than these best anchor based
+    for each benchmark. AFSN is 3&times; - 425&times; faster than these best anchor based
     trackers. AFSN is also 5.97% to 12.4% more accurate in terms of all metrics for
     benchmark sets OTB2015, VOT2015, VOT2016, VOT2018 and TrackingNet, except that
     SiamRPN++ is 4% better than AFSN in terms of Expected Average Overlap (EAO) on
     VOT2018 (but SiamRPN++ is 3.9&times; slower).
 </p>
 
-<h2>Tracking Algorithm Improvement</h2>
-<h3>SiamFC</h3>
-<center>
-<img src="/assets/Research-UCLA-LeiHe/Fig4.png" width="50%">
-</center>
-<p>The output is a score map whose dimension depends on the size of the search image.
-    This enables the similarity function to be computed for all translated sub-windows
-    within the search image in one evaluation. The red and blue pixels in the score
-    map contain the similarities for the corresponding sub-windows.</p>
+<p class="subtitle">Network output</p>
+<center><img src="/assets/Research-UCLA-LeiHe/Fig8.png" width="65%"></center>
+<p class="txt">The outputs of the proposed anchor free Siamese network: score map,
+    tracking offset and object size. Our aim is to represent the object with the bounding
+    box center. Scales and tracking offset are regressed directly from image features at
+    the center location.</p>
 
-<h3>Conclusions and guidelines</h3>
-<ul>
-    <li>Siamese trackers prefer a relatively small network stride.</li>
-    <li>The receptive field of output features should be set based on its ratio to
-        the size of the exemplar image (60% ~ 80% for an exemplar image)</li>
-    <li>Receptive field determines the image region used in computing a feature.
-        A large receptive field covers much image context</li>
-    <li>Group convolution increases the robustness of network, which also improves
-        the tracking speed</li>
-    <li>More channel numbers extract more features and offer more similarity
-        information for comparison</li>
-</ul>
-<center>
-<img src="/assets/Research-UCLA-LeiHe/Fig5.png" width="40%">
-<img src="/assets/Research-UCLA-LeiHe/Fig6.png" width="40%">
-</center>
+<p class="subtitle">Tracking result</p>
+<div class="row">
+    <div class="column">
+        <img src="/assets/Research-UCLA-LeiHe/Fig9.png" style="width:100%">
+    </div>
+    <div class="column">
+        <img src="/assets/Research-UCLA-LeiHe/Fig10.png" style="width:100%">
+    </div>
+</div>
+<p class="txt">The standardized OTB benchmark provides a fair test for both accuracy and robustness.
+    The benchmark considers the precision plot and the success plot of one path evaluation
+    (OPE). The precision plot considers the percentage of frames in which the estimated locations
+    are within a given threshold distance of the target bounding box. The definition of average
+    success rate is that a tracker is successful in a given frame if the intersection-over-union
+    between its estimation and the groundtruth is above a certain threshold. We compare our anchor
+    free Siamese tracker on the OTB2015 with the state-of-the-art trackers. Compared with the
+    recent SiamRPN, the precision rate and success rate increase 0.93% and 5.97%, respectively.</p>
+
+<p class="txt">More info can be found in my poster.
+    <a href="/assets/Research-UCLA-LeiHe/poster.jpg">Click here</a></p>
 
 </body>
 </html>
@@ -580,7 +594,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Conference</a>
+                <a href="javascript:void(0)" class="js-tag color5">SJTU</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -588,15 +602,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Data Science</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SJTU</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Materials Science and Engineering</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Conference</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Data Science</a>
               </li>
              
               <li class="article-tag-list-item">
