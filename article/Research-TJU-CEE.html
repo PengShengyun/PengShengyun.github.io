@@ -6,21 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Shengyun Peng</title>
+  <title>Computer Vision-based Structural System Identification | Shengyun Peng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Title">
+  <meta name="description" content="Title               Computer vision techniques are utilized to tackle real-life structural control and health     monitoring issues. This demo shows the vibrations of Humen Pearl River bri">
+<meta name="keywords" content="Tongji,Research,Civil Engineering">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Shengyun Peng">
+<meta property="og:title" content="Computer Vision-based Structural System Identification">
 <meta property="og:url" content="http://yoursite.com/article/Research-TJU-CEE.html">
 <meta property="og:site_name" content="Shengyun Peng">
-<meta property="og:description" content="Title">
+<meta property="og:description" content="Title               Computer vision techniques are utilized to tackle real-life structural control and health     monitoring issues. This demo shows the vibrations of Humen Pearl River bri">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/assets/fig1.png">
-<meta property="og:updated_time" content="2020-09-12T07:50:51.721Z">
+<meta property="og:image" content="http://yoursite.com/assets/Research-TJU-YingZhou/fig2.png">
+<meta property="og:image" content="http://yoursite.com/assets/Research-TJU-YingZhou/fig1.png">
+<meta property="og:image" content="http://yoursite.com/assets/Research-TJU-YingZhou/fig3.jpeg">
+<meta property="og:image" content="http://yoursite.com/assets/Research-TJU-YingZhou/fig6.jpg">
+<meta property="og:updated_time" content="2020-09-14T14:51:04.891Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shengyun Peng">
-<meta name="twitter:description" content="Title">
-<meta name="twitter:image" content="http://yoursite.com/assets/fig1.png">
+<meta name="twitter:title" content="Computer Vision-based Structural System Identification">
+<meta name="twitter:description" content="Title               Computer vision techniques are utilized to tackle real-life structural control and health     monitoring issues. This demo shows the vibrations of Humen Pearl River bri">
+<meta name="twitter:image" content="http://yoursite.com/assets/Research-TJU-YingZhou/fig2.png">
   
     <link rel="alternative" href="/atom.xml" title="Shengyun Peng" type="application/atom+xml">
   
@@ -180,20 +184,117 @@
             <article id="post-Research-TJU-CEE" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Computer Vision-based Structural System Identification
+    </h1>
+  
+
+        
+        
+	<!-- 不蒜子统计 -->
+	<span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> Page View: <span id="busuanzi_value_page_pv"></span>
+        </span>
+
+<a href="/article/Research-TJU-CEE.html" class="archive-article-date">
+  	<time datetime="2020-08-31T13:50:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-31</time>
+</a>
+
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <!DOCTYPE html>
+        
+<!DOCTYPE html>
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="general.css" media="screen">
+    <link rel="stylesheet" href="/assets/general.css" media="screen">
 </head>
 <body>
-<center><img src="/assets/fig1.png" width="100%"></center>
+<video id="video" controls width="100%">
+    <source id="mp4" src="/assets/Research-TJU-YingZhou/demo.mp4" type="video/mp4">
+</video>
+<p>Computer vision techniques are utilized to tackle real-life structural control and health
+    monitoring issues. This demo shows the vibrations of Humen Pearl River bridge during a
+    hurricane. Displacements of the bridge is measured by non-contact tracking algorithms.</p>
 <a id="more"></a>
 </body>
+<h2>Introduction</h2>
+<p class="txt">
+    The structural health monitoring (SHM) of civil infrastructures mainly aims to monitor
+    the structural condition, detect the structural abnormality, and evaluate the structural
+    safety based on the long-term monitoring data from a variety of sensors installed on
+    the structures. In the SHM community, realizing the autonomous, accurate and robust
+    data processing systems has been a great concern.
+</p>
+<center><img src="/assets/Research-TJU-YingZhou/fig2.png" width="90%"></center>
 </html>
+<p class="txt">
+    Structural displacement responses to a variety of external loads are fundamental for
+    structure status estimation and health monitoring. The displacement measurement systems
+    can be divided into two types: contact and non-contact systems. The contact systems
+    generally includes high precision transducers, like LVDT and cable type. These systems
+    require a stationary reference point to measure the relative displacement between the
+    structure and the fixed point. Meanwhile, it is difficult and almost impossible to
+    install the measuring system on structures, which are super high-rises or are located
+    over a watercourse. The non-contact systems generally encompass laser, radar, GPS and
+    camera systems. The measurement of the laser technique is very accurate, but the high
+    intensity laser beam is detrimental to human health and the cost of the whole system
+    is too high for regular SHM. System that uses GPS technology can measure the displacement
+    within 0.2 mm, but it requires a local station and the frequency is normally below 20 Hz.
+</p>
+
+<h2>System model overview</h2>
+<p class="txt">
+    Vision-based measuring methods have established a good compromise between the acquisition
+    frame rate and the resolution. This technique has the advantages of non-contact, non-destructive,
+    long distance and immunity to electromagnetic interference.
+</p>
+<center><img src="/assets/Research-TJU-YingZhou/fig1.png" width="85%"></center>
+<p class="txt">
+    The method mainly consists of four parts: <br>
+    - Original video taken by commercial cellphone cameras and pre-processed video taken
+    by the UAV<br>
+    - Camera system setups including calibrating cameras and building reference
+    coordinates<br>
+    - Object tracking algorithms: we have developed several methods, and DNN
+    trackers are applied in the latest model<br>
+    - Displacement measurements and system identifications<br>
+</p>
+
+<h2>Object tracking algorithms</h2>
+
+<h2>Camera calibration</h2>
+
+<h2>Eliminating vibration on a multi-rotor drone</h2>
+
+<h2>Experiments</h2>
+<p class="subtitle">Simulation test</p>
+<video controls width="100%">
+    <source src="/assets/Research-TJU-YingZhou/v2.mp4" type="video/mp4">
+</video>
+<center><img src="/assets/Research-TJU-YingZhou/fig3.jpeg" style="width:80%"></center>
+
+
+<p class="subtitle">Small-scale shaking table test</p>
+State Key Laboratory of Disaster Reduction in Civil Engineering, Tongji University
+<p class="subtitle">Large-scale shaking table test</p>
+The experiment is conducted at
+<a href="http://www.ilee-tj.com/En/Data/List/about" target="_blank" rel="noopener">
+    International Joint Research Laboratory of Earthquake Engineering.
+</a>
+<center><img src="/assets/Research-TJU-YingZhou/fig6.jpg" width="100%"></center>
+
+
+<h2>Field test</h2>
+<p class="subtitle">Humen Pearl River bridge</p>
+
       
 
       
@@ -201,6 +302,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tongji</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Research</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Civil Engineering</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -266,8 +386,8 @@
 <nav id="article-nav">
   
   
-    <a href="/article/Research-TJU-YingZhou.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Computer Vision-based Structural System Identification</div>
+    <a href="/article/Introduction.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Profile</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -430,19 +550,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Conference</a>
+                <a href="javascript:void(0)" class="js-tag color5">SJTU</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Civil Engineering</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Data Science</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SJTU</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -459,6 +571,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">National</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Conference</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Data Science</a>
               </li>
              
               <li class="article-tag-list-item">
