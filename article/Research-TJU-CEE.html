@@ -18,9 +18,10 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/assets/Research-TJU-YingZhou/fig2.png">
 <meta property="og:image" content="http://yoursite.com/assets/Research-TJU-YingZhou/fig1.png">
+<meta property="og:image" content="http://yoursite.com/assets/Research-TJU-YingZhou/fig4.png">
 <meta property="og:image" content="http://yoursite.com/assets/Research-TJU-YingZhou/fig3.jpeg">
 <meta property="og:image" content="http://yoursite.com/assets/Research-TJU-YingZhou/fig6.jpg">
-<meta property="og:updated_time" content="2020-09-14T14:51:04.891Z">
+<meta property="og:updated_time" content="2020-09-15T15:33:06.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Computer Vision-based Structural System Identification">
 <meta name="twitter:description" content="Title               Computer vision techniques are utilized to tackle real-life structural control and health     monitoring issues. This demo shows the vibrations of Humen Pearl River bri">
@@ -218,7 +219,7 @@
 </head>
 <body>
 <video id="video" controls width="100%">
-    <source id="mp4" src="/assets/Research-TJU-YingZhou/demo.mp4" type="video/mp4">
+    <source class="mp4" src="/assets/Research-TJU-YingZhou/demo.mp4" type="video/mp4">
 </video>
 <p>Computer vision techniques are utilized to tackle real-life structural control and health
     monitoring issues. This demo shows the vibrations of Humen Pearl River bridge during a
@@ -269,6 +270,21 @@
 </p>
 
 <h2>Object tracking algorithms</h2>
+<p class="subtitle">Feature point matching (SIFT)</p>
+
+<p class="subtitle">Template matching (KCF)</p>
+
+<p class="subtitle">Deep neural network (SiamSDN)</p>
+<center><img src="/assets/Research-TJU-YingZhou/fig4.png" width="65%"></center>
+<p class="txt">
+    The proposed network includes five typical parts: input image pairs, feature extraction
+    subnetwork, matching function, decoder and output score map. The matching function is
+    also known as the correlation operator. Conventional discriminative trackers are based
+    on correlation filter, which trains a regressor by exploiting the properties of circular
+    correlation and performing operations in the Fourier domain. It can do online tracking
+    and update the weights of filters at the same time efficiently. SiamSDN combines the
+    advantage of CNN and correlation filter. It uses deep features to improve the accuracy.
+</p>
 
 <h2>Camera calibration</h2>
 
@@ -276,24 +292,28 @@
 
 <h2>Experiments</h2>
 <p class="subtitle">Simulation test</p>
-<video controls width="100%">
-    <source src="/assets/Research-TJU-YingZhou/v2.mp4" type="video/mp4">
-</video>
+<!--<video id="video2" controls="" width="100%">-->
+<!--    <source class="mp4" src="/assets/Research-TJU-YingZhou/v2.mp4" type="video/mp4">-->
+<!--</video>-->
 <center><img src="/assets/Research-TJU-YingZhou/fig3.jpeg" style="width:80%"></center>
 
 
 <p class="subtitle">Small-scale shaking table test</p>
 State Key Laboratory of Disaster Reduction in Civil Engineering, Tongji University
+
 <p class="subtitle">Large-scale shaking table test</p>
-The experiment is conducted at
-<a href="http://www.ilee-tj.com/En/Data/List/about" target="_blank" rel="noopener">
-    International Joint Research Laboratory of Earthquake Engineering.
-</a>
+<p class="txt">We also test our vision measuring system on a large-scale shaking
+    table test. The experiment is conducted at <a href="http://www.ilee-tj.com/En/Data/List/about" target="_blank" rel="noopener">
+    International Joint Research Laboratory of Earthquake Engineering.</a>
+    It is a <a href="/assets/Research-TJU-YingZhou/JiaDingST.pdf">ILEE-QuakeCoRE shake table
+    test</a> on a low-damage concrete wall building.
+</p>
 <center><img src="/assets/Research-TJU-YingZhou/fig6.jpg" width="100%"></center>
 
 
 <h2>Field test</h2>
 <p class="subtitle">Humen Pearl River bridge</p>
+Empirical Mode Decomposition (EMD)
 
       
 
